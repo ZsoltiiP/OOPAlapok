@@ -9,8 +9,9 @@ namespace OOPAlapok
 {
     public class Szemely
     {
-        private string _nev;
+        protected string _nev;
         private int _kor;
+
 
         public string Nev
         {
@@ -71,6 +72,18 @@ namespace OOPAlapok
         }
 
     }
+    
+
+    public class Hallgato : Szemely
+    {
+        private string _neptunkod;
+
+        public override string ToString()
+        {
+            _nev = "Gábor";
+            return $"A hallgató neve {_nev}";
+        }
+    }
 
 
     class Program
@@ -82,7 +95,8 @@ namespace OOPAlapok
             person.Nev = "Kiss Ilona";
             Console.WriteLine(person);
 
-
+            Hallgato student = new Hallgato();
+            Console.WriteLine(student);
 
             /*
             Szemely person = new Szemely("Peti", 22);
