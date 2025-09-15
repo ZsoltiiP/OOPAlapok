@@ -76,7 +76,20 @@ namespace OOPAlapok
 
     public class Hallgato : Szemely
     {
+        
         private string _neptunkod;
+
+        public string Neptunkod
+        {
+            get { return _neptunkod; }
+            set
+            {
+                if (_neptunkod.Length <= 6)
+                    _neptunkod = value;
+                else
+                    Console.WriteLine("Túl hosszú!");
+            }
+        }
 
         public override string ToString()
         {
@@ -98,6 +111,20 @@ namespace OOPAlapok
             Hallgato student = new Hallgato();
             Console.WriteLine(student);
 
+            List<Hallgato> studentList = new List<Hallgato>();
+            for (int i = 0; i < 3; i++)
+            {
+                Hallgato student2 = new Hallgato();
+                Console.Write($"Kérem a {i+1} hallgató nevét: ");
+                student2.Nev = Console.ReadLine();
+                Console.Write($"Kérem a {i + 1} hallgató életkorát: ");
+                student2.Kor = int.Parse(Console.ReadLine());
+                studentList.Add(student2);
+            }
+            foreach (var item in studentList)
+            {
+                Console.WriteLine(item.Nev);
+            }
             /*
             Szemely person = new Szemely("Peti", 22);
             Console.WriteLine(person.Kiir());
