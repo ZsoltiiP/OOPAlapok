@@ -13,6 +13,12 @@ namespace OOPAlapok
         private int _kor;
 
 
+        public Szemely(string nev, int kor)
+        {
+            _nev = nev;
+            Kor = kor;
+        }
+
         public string Nev
         {
             get { return _nev; }
@@ -79,6 +85,12 @@ namespace OOPAlapok
         
         private string _neptunkod;
 
+
+        public Hallgato(string nev, int kor) : base(nev, kor)
+        {
+
+        }
+
         public string Neptunkod
         {
             get { return _neptunkod; }
@@ -97,18 +109,28 @@ namespace OOPAlapok
             return $"A hallgató neve {_nev}";
         }
     }
+    public class Dolgozo : Szemely
+    {
+        public int _ber;
+
+
+        public override string ToString()
+        {
+            return $"A dolgozó neve {_nev}";
+        }
+    }
 
 
     class Program
     {
         static void Main(string[] args)
         {
-            Szemely person = new Szemely();
+            Szemely person = new Szemely("Kiss Ilona", 23);
             person.Kor = 23;
             person.Nev = "Kiss Ilona";
             Console.WriteLine(person);
 
-            Hallgato student = new Hallgato();
+            Hallgato student = new Hallgato(person.Nev, person.Kor);
             Console.WriteLine(student);
 
             List<Hallgato> studentList = new List<Hallgato>();
@@ -125,6 +147,10 @@ namespace OOPAlapok
             {
                 Console.WriteLine(item.Nev);
             }
+
+            Dolgozo worker = new Dolgozo();
+            Console.WriteLine(worker);
+
             /*
             Szemely person = new Szemely("Peti", 22);
             Console.WriteLine(person.Kiir());
