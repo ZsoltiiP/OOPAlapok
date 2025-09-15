@@ -28,6 +28,11 @@ namespace OOPAlapok
                     Console.WriteLine("Nem lehet negatív.");
             }
         }
+        public override string ToString()
+        {
+            return $"A személy neve: {_nev} és az életkora {_kor}";
+        }
+
 
         /*
         public Szemely(string Nev, int Kor)
@@ -49,7 +54,9 @@ namespace OOPAlapok
             Szemely person = new Szemely();
             person.Kor = 23;
             person.Nev = "Kiss Ilona";
-            Console.WriteLine($"A személy neve: {person.Nev} és {person.Kor} éves.");
+            Console.WriteLine(person);
+
+
 
             /*
             Szemely person = new Szemely("Peti", 22);
